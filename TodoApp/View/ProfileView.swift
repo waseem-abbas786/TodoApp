@@ -1,6 +1,7 @@
 import SwiftUI
 
 struct ProfileView: View {
+    @Environment(\.colorScheme) var colorScheme
     @StateObject private var viewModel = ProfileViewModel()
  @State  var isAnimate : Bool = false
 
@@ -20,7 +21,7 @@ struct ProfileView: View {
                     }
                     .padding()
                     .frame(width:isAnimate ? 150 : 200)
-                    .foregroundStyle(Color.white)
+                    .foregroundStyle(Color.white.opacity(0.6))
                     .background(Color.blue)
                     .clipShape(.buttonBorder)
                     .onAppear {
@@ -37,24 +38,27 @@ struct ProfileView: View {
                             .font(.headline)
 
                         TextField("Username", text: $viewModel.username)
+                            .foregroundStyle(colorScheme == .light ? .black : .red)
                             .padding()
                             .frame(height: 55)
                             .frame(maxWidth: 380)
-                            .background(Color.white)
+                            .background(Color.white.opacity(0.5))
                             .clipShape(.buttonBorder)
 
                         TextField("City", text: $viewModel.city)
+                            .foregroundStyle(colorScheme == .light ? .black : .red)
                             .padding()
                             .frame(height: 55)
                             .frame(maxWidth: 380)
-                            .background(Color.white)
+                            .background(Color.white.opacity(0.5))
                             .clipShape(.buttonBorder)
 
                         SecureField("Password", text: $viewModel.password)
+                            .foregroundStyle(colorScheme == .light ? .black : .red)
                             .padding()
                             .frame(height: 55)
                             .frame(maxWidth: 380)
-                            .background(Color.white)
+                            .background(Color.white.opacity(0.5))
                             .clipShape(.buttonBorder)
                         Spacer()
 

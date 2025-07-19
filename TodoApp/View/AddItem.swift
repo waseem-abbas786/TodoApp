@@ -1,6 +1,7 @@
 import SwiftUI
 
 struct AddItem: View {
+    @Environment(\.colorScheme) var colorScheme
     @ObservedObject var viewModel: TodoViewModel
     @State private var errorMessage: String?
     @State private var isAnimate : Bool = false
@@ -10,8 +11,9 @@ struct AddItem: View {
             Color.gray.opacity(0.1).ignoresSafeArea()
             VStack(spacing: 30) {
                 TextField("Add Item", text: $viewModel.newItem)
+                    .foregroundStyle(colorScheme == .light ? .black : .red)
                     .padding()
-                    .background(Color.white)
+                    .background(Color.white.opacity(0.5))
                     .cornerRadius(10)
                     .padding(.horizontal)
                 if let errorMessage = errorMessage {
