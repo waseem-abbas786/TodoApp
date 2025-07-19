@@ -4,6 +4,7 @@ struct AddItem: View {
     @ObservedObject var viewModel: TodoViewModel
     @State private var errorMessage: String?
     @State private var isAnimate : Bool = false
+    @Environment(\.presentationMode) var presentationMode
     var body: some View {
         ZStack {
             Color.gray.opacity(0.1).ignoresSafeArea()
@@ -25,6 +26,7 @@ struct AddItem: View {
                         viewModel.addItem(title: viewModel.newItem)
                         viewModel.newItem = ""
                         errorMessage = nil
+                        presentationMode.wrappedValue.dismiss()
                     }
                     
                 }
