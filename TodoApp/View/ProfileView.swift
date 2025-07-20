@@ -39,27 +39,15 @@ struct ProfileView: View {
 
                         TextField("Username", text: $viewModel.username)
                             .foregroundStyle(colorScheme == .light ? .black : .red)
-                            .padding()
-                            .frame(height: 55)
-                            .frame(maxWidth: 380)
-                            .background(Color.white.opacity(0.5))
-                            .clipShape(.buttonBorder)
+                            .inputStyle
 
                         TextField("City", text: $viewModel.city)
                             .foregroundStyle(colorScheme == .light ? .black : .red)
-                            .padding()
-                            .frame(height: 55)
-                            .frame(maxWidth: 380)
-                            .background(Color.white.opacity(0.5))
-                            .clipShape(.buttonBorder)
+                            .inputStyle
 
                         SecureField("Password", text: $viewModel.password)
                             .foregroundStyle(colorScheme == .light ? .black : .red)
-                            .padding()
-                            .frame(height: 55)
-                            .frame(maxWidth: 380)
-                            .background(Color.white.opacity(0.5))
-                            .clipShape(.buttonBorder)
+                            .inputStyle
                         Spacer()
 
                         Button("Sign Up") {
@@ -104,4 +92,14 @@ struct ProfileView: View {
 }
 #Preview {
     ProfileView()
+}
+extension View {
+    var inputStyle: some View {
+        self
+            .padding()
+            .frame(height: 55)
+            .frame(maxWidth: 380)
+            .background(Color.white.opacity(0.5))
+            .clipShape(.buttonBorder)
+    }
 }
