@@ -11,6 +11,7 @@ A simple yet powerful Todo & Profile app built using SwiftUI, MVVM architecture,
 - Display todos in a clean list with `checkmark` icons
 - Delete and reorder todos
 - Save, load, and clear todos using `UserDefaults`
+- Dark Mode support
 
 ### 👤 User Profile
 - Sign Up form with:
